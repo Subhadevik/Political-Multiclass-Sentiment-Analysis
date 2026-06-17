@@ -51,3 +51,35 @@ All models use **TF-IDF vectorization** (max 5000 features) on the preprocessed 
 **Random Forest** and **Decision Tree** performed best on the test set, while **AdaBoost** performed poorly relative to the others on this dataset.
 
 ## Project Structure
+
+Political-Multiclass-Sentiment-Analysis/
+
+├── Preprocessing_of_PD.ipynb   # Main notebook: preprocessing + model training/evaluation
+
+└── README.md
+
+## Requirements
+
+- Python 3.10+
+- pandas
+- scikit-learn
+- stanza
+- nltk
+- catboost
+
+Install dependencies:
+```bash
+pip install pandas scikit-learn stanza nltk catboost
+```
+
+## Usage
+
+1. Open `Preprocessing_of_PD.ipynb` in Google Colab or Jupyter
+2. Mount your data source (the notebook expects `PS_train.csv` and `PS_test_without_lables.csv`)
+3. Run cells sequentially to preprocess data, train models, and generate predictions
+4. Predictions are saved to `test_predictions.csv`
+
+## Notes
+
+- The notebook was originally developed in Google Colab, so some cells reference Google Drive paths (`/content/drive/MyDrive/...`) — update these paths if running elsewhere.
+- Class balancing is done via upsampling with replacement, which may lead to some overfitting on minority classes; this is reflected in the gap between train and test accuracy for tree-based models.
